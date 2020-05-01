@@ -100,33 +100,34 @@ result_flows = {'infections':  'infections',
                 'quarantined': 'quarantined people',
 }
 
+
 # Define these here as well
 new_result_flows = [f'new_{key}' for key in result_flows.keys()]
 cum_result_flows = [f'cum_{key}' for key in result_flows.keys()]
 
-# Default age data, based on Seattle 2018 census data -- used in population.py
-default_age_data = np.array([
-            [ 0,  4, 0.0605],
-            [ 5,  9, 0.0607],
-            [10, 14, 0.0566],
-            [15, 19, 0.0557],
-            [20, 24, 0.0612],
-            [25, 29, 0.0843],
-            [30, 34, 0.0848],
-            [35, 39, 0.0764],
-            [40, 44, 0.0697],
-            [45, 49, 0.0701],
-            [50, 54, 0.0681],
-            [55, 59, 0.0653],
-            [60, 64, 0.0591],
-            [65, 69, 0.0453],
-            [70, 74, 0.0312],
-            [75, 79, 0.02016], # Calculated based on 0.0504 total for >=75
-            [80, 84, 0.01344],
-            [85, 89, 0.01008],
-            [90, 99, 0.00672],
-            ])
 
+# ML, 4/15/2020: this is Matt's change based on the ACS 2018 survey for Oregon population
+default_age_data = np.array([
+            [ 0,  4, 0.055],
+            [ 5,  9, 0.057],
+            [10, 14, 0.061],
+            [15, 19, 0.060],
+            [20, 24, 0.063],
+            [25, 29, 0.072],
+            [30, 34, 0.070],
+            [35, 39, 0.069],
+            [40, 44, 0.064],
+            [45, 49, 0.064],
+            [50, 54, 0.060],
+            [55, 59, 0.064],
+            [60, 64, 0.066],
+            [65, 69, 0.062],
+            [70, 74, 0.045],
+            [75, 79, 0.031], # Calculated based on 0.0504 total for >=75
+            [80, 84, 0.020],
+            [85, 89, 0.0114],
+            [90, 99, 0.0076], # EE - used same proportion as above Seattle pop for age 85+
+            ])
 
 def get_colors():
     '''
