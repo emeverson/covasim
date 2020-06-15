@@ -155,6 +155,7 @@ def get_colors():
     return colors
 
 
+<<<<<<< HEAD
 # Define the 'overview plots', i.e. the most useful set of plots to explore different aspects of a simulation
 overview_plots = [
             'cum_infections',
