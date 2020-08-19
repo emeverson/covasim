@@ -194,15 +194,25 @@ def get_prognoses(by_age=True):
         prognoses = dict(
             age_cutoffs   = np.array([0,       10,      20,      30,      40,      50,      60,      70,      80,      90,]),     # Age cutoffs (lower limits)
             #sus_ORs       = np.array([0.34,    0.67,    1.00,    1.00,    1.00,    1.00,    1.24,    1.47,    1.47,    1.47]),    # Odds ratios for relative susceptibility -- from https://science.sciencemag.org/content/early/2020/05/04/science.abb8001; 10-20 and 60-70 bins are the average across the ORs
-            sus_ORs        = np.array([0.25, 0.50, 1.70, 1.42, 1.25, 1.25, 0.60, 0.71, 1.06, 1.06]),
+            #sus_ORs        = np.array([0.25,   0.50,    1.70,    1.42,    1.25,    1.25,    0.60,    0.71,    1.06,    1.06]),    # Oregon initial updated values, used through 6/22 report
+            #sus_ORs        = np.array([2.42,   0.51,    1.08,    0.48,    0.63,    1.05,    0.93,    1.02,    1.19,    1.19]),     # Oregon 7/7/20 update; reflecting CDC Scen 4 w/Hx through April (
+            sus_ORs        = np.array([2.84,   0.66,    1.17,    0.46,    0.50,    0.86,    0.77,    0.87,    1.12,    1.12]),     # Oregon 8/4/20 update; updated with non-hosp deaths as severe
             trans_ORs     = np.array([1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00]),    # Odds ratios for relative transmissibility -- no evidence of differences
             comorbidities = np.array([1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00,    1.00]),    # Comorbidities by age -- set to 1 by default since already included in disease progression rates
             symp_probs    = np.array([0.50,    0.55,    0.60,    0.65,    0.70,    0.75,    0.80,    0.85,    0.90,    0.90]),    # Overall probability of developing symptoms (based on https://www.medrxiv.org/content/10.1101/2020.03.24.20043018v1.full.pdf, scaled for overall symptomaticity)
             #severe_probs  = np.array([0.00050, 0.00165, 0.00720, 0.02080, 0.03430, 0.07650, 0.13280, 0.20655, 0.24570, 0.24570]), # Overall probability of developing severe symptoms (derived from Table 1 of https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-16-COVID19-Report-9.pdf)
-            severe_probs = np.array([0.00070, 0.00229, 0.01001, 0.02891, 0.04768, 0.05967, 0.09827, 0.14459, 0.17199,  0.17199]),  # adjusted based on CDC ratios 5/26/2020
-            crit_probs    = np.array([0.00003, 0.00008, 0.00036, 0.00104, 0.00216, 0.00933, 0.03639, 0.08923, 0.17420, 0.17420]), # Overall probability of developing critical symptoms (derived from Table 1 of https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-16-COVID19-Report-9.pdf)
-            death_probs   = np.array([0.00002, 0.00006, 0.00030, 0.00080, 0.00150, 0.00600, 0.02200, 0.05100, 0.09300, 0.09300]), # Overall probability of dying (https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf)
-        )
+            #severe_probs  = np.array([0.00070, 0.00229, 0.01001, 0.02891, 0.04768, 0.05967, 0.09827, 0.14459, 0.17199, 0.17199]),  # Oregon initial adjustment based on CDC ratios 5/26/2020
+            severe_probs  = np.array([0.00064, 0.00213, 0.00928, 0.02680, 0.04419, 0.03862, 0.06169, 0.08761, 0.10421, 0.10421]), # Oregon 7/7/20 update; reflecting CDC scenario 4, with IDM symptomatic % by age
+            #crit_probs    = np.array([0.00003, 0.00008, 0.00036, 0.00104, 0.00216, 0.00933, 0.03639, 0.08923, 0.17420, 0.17420]), # Overall probability of developing critical symptoms (derived from Table 1 of https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-16-COVID19-Report-9.pdf)
+            #death_probs   = np.array([0.00002, 0.00006, 0.00030, 0.00080, 0.00150, 0.00600, 0.02200, 0.05100, 0.09300, 0.09300]), # Overall probability of dying (https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf)
+            crit_probs    = np.array([0.00001, 0.00001, 0.00010, 0.00056, 0.00110, 0.00283, 0.01128, 0.02178, 0.05144, 0.05144]), # Oregon 8/4/20 update; per local death data (crit %=death %)
+            #crit_probs    = np.array([0.00004, 0.00021, 0.00096, 0.00407, 0.01138, 0.01156, 0.01792, 0.02507, 0.01759, 0.01759]), # Oregon 8/3/20 update; per local data (set crit % = actual %, except where < death)
+            death_probs   = np.array([0.00000, 0.00000, 0.00009, 0.00055, 0.00109, 0.00282, 0.01127, 0.02177, 0.05143, 0.05143]), # Oregon 8/4/20 update; per local data, w/all deaths as severe
+ )
+  
+
+  
+
 
 
 

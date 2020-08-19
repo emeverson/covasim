@@ -155,7 +155,6 @@ def get_colors():
     return colors
 
 
-<<<<<<< HEAD
 # Define the 'overview plots', i.e. the most useful set of plots to explore different aspects of a simulation
 overview_plots = [
             'cum_infections',
@@ -190,19 +189,23 @@ def get_sim_plots(which='default'):
     '''
     if which in [None, 'default']:
         plots = sc.odict({
-                'Total counts': [
-                    'cum_infections',
-                    'n_infectious',
-                    'cum_diagnoses',
-                ],
-                'Daily counts': [
-                    'new_infections',
-                    'new_diagnoses',
-                ],
-                'Health outcomes': [
+                #'Total counts': [
+                #    'cum_infections',
+                #    #'n_infectious',
+                #    'cum_diagnoses',
+                #],
+                #'Daily counts': [
+                #    'new_infections',
+                #    'new_diagnoses',
+                #    'new_deaths',
+                #],
+                'Cumulative hospitalizations': [
                     'cum_severe',
-                    'cum_critical',
-                    'cum_deaths',
+                    #'cum_critical',
+                    #'cum_deaths',
+                ],
+                'Daily hospitalizations': [
+                    'new_severe',
                 ],
         })
     elif which == 'overview':

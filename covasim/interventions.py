@@ -241,7 +241,7 @@ class dynamic_pars(Intervention):
         self.pars = pars
         return
 
-
+ 
     def apply(self, sim):
         ''' Loop over the parameters, and then loop over the days, applying them if any are found '''
         t = sim.t
@@ -253,6 +253,9 @@ class dynamic_pars(Intervention):
                     sim[parkey].update(val) # Set the parameter if a nested dict
                 else:
                     sim[parkey] = val # Set the parameter if not a dict
+                if parkey in ['prognoses']:			    # KR new code for dynamic sus_ORs
+                    # reset prognoses
+                    sim.people.set_prognoses()          # KR new code for dynamic sus_ORs
         return
 
 
