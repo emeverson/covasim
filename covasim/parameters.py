@@ -205,11 +205,13 @@ def get_prognoses(by_age=True):
             severe_probs  = np.array([0.00064, 0.00213, 0.00928, 0.02680, 0.04419, 0.03862, 0.06169, 0.08761, 0.10421, 0.10421]), # Oregon 7/7/20 update; reflecting CDC scenario 4, with IDM symptomatic % by age
             #crit_probs    = np.array([0.00003, 0.00008, 0.00036, 0.00104, 0.00216, 0.00933, 0.03639, 0.08923, 0.17420, 0.17420]), # Overall probability of developing critical symptoms (derived from Table 1 of https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-16-COVID19-Report-9.pdf)
             #death_probs   = np.array([0.00002, 0.00006, 0.00030, 0.00080, 0.00150, 0.00600, 0.02200, 0.05100, 0.09300, 0.09300]), # Overall probability of dying (https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf)
-            crit_probs    = np.array([0.00001, 0.00001, 0.00010, 0.00056, 0.00110, 0.00283, 0.01128, 0.02178, 0.05144, 0.05144]), # Oregon 8/4/20 update; per local death data (crit %=death %)
-            #crit_probs    = np.array([0.00004, 0.00021, 0.00096, 0.00407, 0.01138, 0.01156, 0.01792, 0.02507, 0.01759, 0.01759]), # Oregon 8/3/20 update; per local data (set crit % = actual %, except where < death)
-            death_probs   = np.array([0.00000, 0.00000, 0.00009, 0.00055, 0.00109, 0.00282, 0.01127, 0.02177, 0.05143, 0.05143]), # Oregon 8/4/20 update; per local data, w/all deaths as severe
+            #crit_probs    = np.array([0.00001, 0.00001, 0.00010, 0.00056, 0.00110, 0.00283, 0.01128, 0.02178, 0.05144, 0.05144]), # Oregon 8/4/20 update; per local death data (crit %=death %)
+            crit_probs    = np.array([0.00004, 0.00021, 0.00105, 0.00444, 0.01181, 0.01311, 0.02364, 0.03925, 0.05955, 0.05955]),  # Oregon 8/3/20 update; per local data (set crit % = actual %)
+            #death_probs   = np.array([0.00000, 0.00000, 0.00009, 0.00055, 0.00109, 0.00282, 0.01127, 0.02177, 0.05143, 0.05143]), # Oregon 8/4/20 update; per local data, w/all deaths as severe
+            death_probs   = np.array([0.00000, 0.00000, 0.00007, 0.00079, 0.00132, 0.00315, 0.01154, 0.02401, 0.05771, 0.05771]), # Oregon 9/1/20 update; per local data, w/all deaths as severe
  )
   
+ 
 
   
 
